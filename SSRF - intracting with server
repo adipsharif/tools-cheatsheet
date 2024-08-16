@@ -1,0 +1,9 @@
+Intracting with server:
+
+netstat -lnt  [loopback intercept]
+
+upload file from link functionality url url link should be tested
+
+sudo systemctl restart apache2 
+https://192.168.0.1/ssrf
+http://localhost/status > status (function)

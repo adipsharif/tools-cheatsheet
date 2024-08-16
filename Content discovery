@@ -1,0 +1,17 @@
+turn of intercept and browse through the website:
+
+we forward some data and burp receive it and we forward it to repeater
+
+
+
+finding endpoints:
+
+gobuster send get request default
+
+gobuster dir -u https://offsec.io -w /usr/share/wordlists/dirb/common.txt
+
+
+https://offsec
+https://offsec/error
+
+whitelabel error page

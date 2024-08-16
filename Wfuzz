@@ -1,0 +1,89 @@
+Wfuzz: can provide excellent coverage for testing input points on web service.
+
+sending valid and invalid data to parameter called fuzzing
+
+
+wfuzz --help
+
+[FUZZ word replace header param post body]
+
+
+wfuzz [File Discovery] :
+
+[-c for color -z for input source --hc for avoid non existing response]
+
+export URL="https://offsec:443/FUZZ"
+echo $URL
+
+
+wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt --hc 301,404,403 "$URL"
+
+
+
+
+
+
+wfuzz [Directory Discovery] :
+
+
+export URL="https://offsec:443/FUZZ"
+echo $URL
+
+wfuzz -c -z file./usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt --hc 404,403 "$URL"
+
+
+
+
+wfuzz [Parameter Discovery] :
+ 
+[response size changes indicated hidden param]
+ 
+ 
+ 
+export URL="https://offsec:443/index.php?FUZZ=data"
+
+wfuzz -c -z file,/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt --hc 404,301 "$URL"
+
+
+we can found hidden param if response shows
+
+
+
+wfuzz [Fuzzing Param Values] :
+
+fuzzing single param:
+
+wfuzz -c -z file,/usr/share/seclists/Usernames/cirt-default-usernames.txt --hc 404 https://offsec:443/index.php/fpv=FUZZ
+
+if through 301 add after --hc
+
+wfuzz -c -z file,/usr/share/seclists/Usernames/cirt-default-usernames.txt --hc 404,301	https://offsec:443/index.php/fpv=FUZZ
+
+
+sure enough we discover fpv param returned a different response code and size when list reached the unix keyword
+
+
+
+
+
+wfuzz [Fuzzing POST data]:
+
+wordpress login form intercept with dummy username and login
+
+from burp intercept pick the post body params
+
+
+
+wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404 -d "log=admin&pwd=FUZZ" https://offsec:443/wp-login.php
+
+
+we may found different response sizes: like 6059ch  from result
+
+
+
+export URL="https://offsec:443/wp-login.php"
+
+wfuzz -c -z file,/usr/share/seclists/Passwords/xato-net-10-million-passwords-100000.txt --hc 404 "log=admin&pwd=FUZZ" --hh 6059 "$URL"
+
+
+

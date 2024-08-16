@@ -1,0 +1,18 @@
+tool: cewl
+
+steps: 
+
+[-d for crawl 	-m for for word length	-w for output]
+
+sudo cewl -d 2 -m 5 -w ourWordlist.txt www.Megacorpone.com
+
+ls -lsa ourWordlist.txt
+
+cat ourWordlist.txt
+
+
+another approch:
+
+ls -sa /usr/bom | sed 's/[0-9]*//g' | sed -r 's/\s+//g' | sort -u > binaries-wordlist.txt
+
+cat binaries-wordlist.txt

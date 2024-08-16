@@ -1,0 +1,36 @@
+Nmap:
+
+ [First export IP]
+ 
+ export IP="192.168.50.101"
+ 
+ echo $IP
+
+sudo nmap -p80 $IP
+
+
+re run same scan:
+
+[-sV] for service version
+
+sudo nmap -p80 -sV $IP
+
+
+NMAP scripts:
+
+default location: cd /usr/share/nmap/scripts
+
+ls -lsaht |grep -i 'http'
+
+nmap -p80 --script=http-enum $IP
+
+
+HTTP method scripts: 
+
+nmap -p80 --script=http-methods --script-args http-methods.url-path='wp-includes' $IP
+
+
+enum plugin and theme:
+
+
+nmap -p80 -sV --script=http-wordpress-enum offsecwp

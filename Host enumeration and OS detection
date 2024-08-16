@@ -1,0 +1,10 @@
+BASIC HOST ENUMERATION AND OS DETECTION:
+
+
+webapp can run on multiple port or any other port except p80 and 443
+
+nmap asio 
+
+operating detection:
+
+sudo nmap -O -Pn asio.com

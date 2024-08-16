@@ -1,0 +1,21 @@
+installing gobuster and basic usage:
+
+gobuster --help
+
+export URL="https://offsecwp:443/"
+
+echo $URL
+
+
+
+Endpoint Discovery with  Gobuster:
+
+[$URL we exported it and used echo]
+
+gobuster dir -u $URL -w /usr/share/wordlists/dirb/common.txt -t 5 -b 301
+
+
+
+Go bust those subdomains:
+
+gobuster dns -d megacorpone.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 30

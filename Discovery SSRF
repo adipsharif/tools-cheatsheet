@@ -1,0 +1,19 @@
+ Discovery SSRF
+ 
+sudo systemctl restart apache2
+
+ sudo tail /var/log/apache2/access.log
+
+ 
+add /repeater to parameter after IP
+192.168.01.2/repeater
+
+ sudo tail /var/log/apache2/access.log
+
+
+look for enter URL form
+
+api/upload.php look for in request
+
+echo "it worked" > itworked.txt
+sudo mv itworked.html /var/www/html/itworked.html

